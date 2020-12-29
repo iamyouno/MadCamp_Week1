@@ -1,15 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment2">
+    android:background="#EFABAB"
+    tools:context=".Fragment2"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#E347FF"
-        android:text="Gallery" />
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:rowCount="3">
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/clock"
+            android:layout_margin="10dp"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/green"
+            android:layout_margin="10dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/sky"
+            android:layout_margin="10dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/rainbow"
+            android:layout_margin="10dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/mountain"
+            android:layout_margin="10dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/white"
+            android:layout_margin="10dp"/>
+
+    </GridLayout>
+
+
 
 </FrameLayout>
