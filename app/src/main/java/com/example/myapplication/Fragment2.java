@@ -1,8 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +59,6 @@ public class Fragment2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -69,7 +70,8 @@ public class Fragment2 extends Fragment {
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"search button is Clicked", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), viewAll.class);
+                startActivity(intent);
             }
         });
         //return inflater.inflate(R.layout.fragment_2, container, false);
