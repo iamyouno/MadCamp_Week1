@@ -35,7 +35,6 @@ public class viewAll extends AppCompatActivity {
         setContentView(R.layout.activity_view_all);
 
         imageView = findViewById(R.id.viewImg);
-        imageView.setImageResource(imgsrc[0]);
 
         for (int i=0; i<imgid.length; i++){
             int finalI = i;
@@ -69,8 +68,6 @@ public class viewAll extends AppCompatActivity {
             });
             heart.setVisibility(View.INVISIBLE);
         }
-        heart = findViewById(heartid[3]);
-        heart.setVisibility(View.VISIBLE);
     }
 }
 
