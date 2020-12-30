@@ -14,14 +14,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"/>
 
     <HorizontalScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/heart"
+        app:layout_constraintBottom_toTopOf="@+id/trash"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
@@ -83,6 +83,7 @@
                 android:src="@drawable/computer" />
         </LinearLayout>
 
+
     </HorizontalScrollView>
 
     <ImageButton
@@ -101,7 +102,7 @@
         style="?android:attr/borderlessButtonStyle"/>
 
     <ToggleButton
-        android:id="@+id/heart"
+        android:id="@+id/heart1"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
@@ -114,6 +115,135 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"/>
+
+    <ToggleButton
+        android:id="@+id/heart2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart6"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart7"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart8"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
+    <ToggleButton
+        android:id="@+id/heart9"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
