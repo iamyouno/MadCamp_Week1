@@ -6,11 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".viewAll">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/viewImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="350dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"/>
+
+    <HorizontalScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imglist1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/white" />
+
+            <ImageView
+                android:id="@+id/imglist2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/green" />
+
+            <ImageView
+                android:id="@+id/imglist3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sky" />
+
+            <ImageView
+                android:id="@+id/imglist4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/mountain" />
+
+            <ImageView
+                android:id="@+id/imglist5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/rainbow" />
+
+            <ImageView
+                android:id="@+id/imglist6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/clock" />
+
+            <ImageView
+                android:id="@+id/imglist7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/red" />
+
+            <ImageView
+                android:id="@+id/imglist8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/purple" />
+
+            <ImageView
+                android:id="@+id/imglist9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/computer" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

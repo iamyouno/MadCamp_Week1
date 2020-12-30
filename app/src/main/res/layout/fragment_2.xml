@@ -4,61 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFABAB"
-    tools:context=".Fragment2"
-    android:orientation="vertical">
+    android:background="#FBFBFB"
+    android:orientation="vertical"
+    tools:context=".Fragment2">
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_gravity="center"
         android:columnCount="2"
         android:orientation="horizontal"
-        android:layout_gravity="center"
         android:rowCount="3">
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/clock"
             android:layout_margin="10dp"
-            />
+            android:src="@drawable/clock" />
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/green"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/green" />
 
         <ImageButton
             android:id="@+id/imageButton5"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/sky"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/sky" />
 
         <ImageButton
             android:id="@+id/imageButton6"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/rainbow"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/rainbow" />
 
         <ImageButton
             android:id="@+id/imageButton7"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/mountain"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/mountain" />
 
         <ImageButton
             android:id="@+id/imageButton8"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:src="@drawable/white"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/white" />
 
     </GridLayout>
 
