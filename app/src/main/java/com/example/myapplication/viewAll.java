@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import org.w3c.dom.Text;
 
@@ -20,6 +22,7 @@ public class viewAll extends AppCompatActivity {
 
     ImageView imageView;
     ImageView chooseImg;
+    ToggleButton heart;
     HorizontalScrollView horizontalScrollView;
     TextView textView;
     int imgid[] = {R.id.imglist1, R.id.imglist2, R.id.imglist3, R.id.imglist4, R.id.imglist5, R.id.imglist6, R.id.imglist7, R.id.imglist8, R.id.imglist9};
@@ -42,6 +45,21 @@ public class viewAll extends AppCompatActivity {
                 }
             });
         }
+
+        heart = findViewById(R.id.heart);
+        heart.setBackgroundDrawable(getResources().getDrawable(R.drawable.emptyheart));
+
+        heart.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+
+                if (heart.isChecked()){
+                    heart.setBackgroundDrawable(getResources().getDrawable(R.drawable.fullheart));
+                }
+                else{
+                    heart.setBackgroundDrawable(getResources().getDrawable(R.drawable.emptyheart));
+                }
+            }
+        });
     }
 }
 
