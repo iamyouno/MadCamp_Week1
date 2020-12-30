@@ -8,6 +8,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
+// FragmentManager : fragment 가져오거나, 삭제하는 등 Activity 내의 Fragment 관리
+// FragmentPagerAdapter : 유저가 페이지로 다시 돌아올 수 있는 한, FragmentManager에서 관리하는 Fragment 나타내주는 PagerAdapter의 implementation
+// PagerAdapter : adapter가 ViewPager 내부 차지할 수 있게 해주는 기본 클래스
+// ViewPager : 유저가 페이지를 왼쪽 오른쪽으로 넘길 수 있게 함.
+
 public class ViewPager_Adapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> items;
     private ArrayList<String> itext = new ArrayList<String>(); //tab_layout에 대한 텍스트 arraylist 선언.

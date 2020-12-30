@@ -10,7 +10,6 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,4 +24,6 @@ public class MainActivity extends AppCompatActivity {
         tab.setupWithViewPager(vp);
 
     }
+
+
 } // ViewPager, ViewPager_Adapter 생성 후 연결
