@@ -17,14 +17,14 @@
         android:rowCount="3">
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/allImages"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_margin="10dp"
             android:src="@drawable/clock" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/favImages"
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_margin="10dp"

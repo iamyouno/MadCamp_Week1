@@ -4,15 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,7 +62,7 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_2, container, false);
-        ImageButton all = (ImageButton)view.findViewById(R.id.imageButton3);
+        ImageButton all = (ImageButton)view.findViewById(R.id.allImages);
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +70,15 @@ public class Fragment2 extends Fragment {
                 startActivity(intent);
             }
         });
-        //return inflater.inflate(R.layout.fragment_2, container, false);
+
+        ImageButton favorite = (ImageButton)view.findViewById(R.id.favImages);
+        favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), view_favorite.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
