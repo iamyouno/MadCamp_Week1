@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
@@ -17,6 +16,7 @@ public class view_favorite extends AppCompatActivity {
     RecyclerView recyclerView;
     Context mContext;
     ImageView imageView;
+    static ArrayList<favImg> favImgs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +30,10 @@ public class view_favorite extends AppCompatActivity {
         mLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
-        ArrayList<favImg> favImgs;
         FavAdapter favAdapter;
 
-        favImgs = new ArrayList<>();
         favAdapter = new FavAdapter(favImgs);
         recyclerView.setAdapter(favAdapter);
-
-        favImgs.add(new favImg(R.drawable.clock));
-        favImgs.add(new favImg(R.drawable.red));
-        favImgs.add(new favImg(R.drawable.purple));
-        favImgs.add(new favImg(R.drawable.rainbow));
 
         imageView = findViewById(R.id.viewFav);
 
@@ -61,7 +54,7 @@ public class view_favorite extends AppCompatActivity {
                     public void onClick(View v){
                         int pos = getAdapterPosition();
 
-                        imageView.setImageResource(R.drawable.sky);
+                        imageView.setImageResource(mList.get(pos).getImage());
                     }
                 });
             }
@@ -89,6 +82,16 @@ public class view_favorite extends AppCompatActivity {
         public int getItemCount() {
             return mList.size();
         }
+    }
+
+    public void addfavImgs(int img_src) {
+        favImgs.add(new favImg(img_src));
+    }
+
+    public void delfavImgs(int img_src) {
+        favImg fi = new favImg(img_src);
+        int position = favImgs.indexOf(fi);
+        favImgs.remove(fi);
     }
 
 }
