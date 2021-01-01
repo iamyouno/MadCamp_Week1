@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import java.util.ArrayList;
 
+import static com.example.myapplication.Fragment2.favImgs;
+
 public class view_favorite extends AppCompatActivity {
     RecyclerView recyclerView;
     Context mContext;
     ImageView imageView;
-    static ArrayList<favImg> favImgs = new ArrayList<>();
+    FavAdapter favAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +32,20 @@ public class view_favorite extends AppCompatActivity {
         mLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(mLinearLayoutManager);
 
-        FavAdapter favAdapter;
-
         favAdapter = new FavAdapter(favImgs);
         recyclerView.setAdapter(favAdapter);
-
         imageView = findViewById(R.id.viewFav);
-
 
     }
 
     public class FavAdapter extends RecyclerView.Adapter<FavAdapter.CustomViewHolder> {
         private ArrayList<favImg> mList;
         ImageView setImage;
+
+        public void delfavImgs(int i) {
+            favImgs.remove(new favImg(i));
+        }
+
         public class CustomViewHolder extends RecyclerView.ViewHolder {
             protected ImageView image;
 
@@ -82,16 +85,10 @@ public class view_favorite extends AppCompatActivity {
         public int getItemCount() {
             return mList.size();
         }
+        
     }
 
-    public void addfavImgs(int img_src) {
-        favImgs.add(new favImg(img_src));
+    public void addfavImgs(favImg fi) {
+        favImgs.add(fi);
     }
-
-    public void delfavImgs(int img_src) {
-        favImg fi = new favImg(img_src);
-        int position = favImgs.indexOf(fi);
-        favImgs.remove(fi);
-    }
-
 }

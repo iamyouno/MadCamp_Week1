@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Fragment2#newInstance} factory method to
@@ -29,6 +31,8 @@ public class Fragment2 extends Fragment {
     public Fragment2() {
         // Required empty public constructor
     }
+
+    static ArrayList<favImg> favImgs = new ArrayList<>();
 
     /**
      * Use this factory method to create a new instance of
@@ -67,6 +71,7 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), viewAll.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
         });
