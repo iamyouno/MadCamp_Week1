@@ -87,6 +87,67 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/orange" />
+
+            <ImageView
+                android:id="@+id/imglist11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat1" />
+
+            <ImageView
+                android:id="@+id/imglist12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat2" />
+
+            <ImageView
+                android:id="@+id/imglist13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat3" />
+
+            <ImageView
+                android:id="@+id/imglist14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat4" />
+
+            <ImageView
+                android:id="@+id/imglist15"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat5" />
+
+            <ImageView
+                android:id="@+id/imglist16"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat6" />
+
+            <ImageView
+                android:id="@+id/imglist17"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/goose1" />
+
+            <ImageView
+                android:id="@+id/imglist18"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat7" />
+
+            <ImageView
+                android:id="@+id/imglist19"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat8" />
+
+            <ImageView
+                android:id="@+id/imglist20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/cat9" />
+
         </LinearLayout>
 
 
@@ -277,6 +338,176 @@
 
     <ToggleButton
         android:id="@+id/heart10"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart12"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart13"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart14"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart15"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart16"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart17"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart18"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart19"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:padding="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/emptyheart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textOn=""
+        android:textOff=""
+        style="?android:attr/borderlessButtonStyle"
+        android:visibility="invisible"
+        android:checked="false"/>
+
+    <ToggleButton
+        android:id="@+id/heart20"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginBottom="10dp"
