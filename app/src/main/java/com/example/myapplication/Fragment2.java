@@ -33,6 +33,7 @@ public class Fragment2 extends Fragment {
     }
 
     static ArrayList<favImg> favImgs = new ArrayList<>();
+    static boolean[] heart_toggled = {false, false, false, false, false, false, false, false, false, false};
 
     /**
      * Use this factory method to create a new instance of

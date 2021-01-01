@@ -136,6 +136,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:textOn=""
         android:textOff=""
+        android:checked="false"
         style="?android:attr/borderlessButtonStyle"/>
 
     <ToggleButton
@@ -152,7 +153,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart3"
@@ -168,7 +170,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart4"
@@ -184,7 +187,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart5"
@@ -200,7 +204,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart6"
@@ -216,7 +221,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart7"
@@ -232,7 +238,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart8"
@@ -248,7 +255,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart9"
@@ -264,7 +272,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
     <ToggleButton
         android:id="@+id/heart10"
@@ -280,7 +289,8 @@
         android:textOn=""
         android:textOff=""
         style="?android:attr/borderlessButtonStyle"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:checked="false"/>
 
 
 

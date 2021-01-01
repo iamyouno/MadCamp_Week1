@@ -40,7 +40,6 @@ public class view_favorite extends AppCompatActivity {
 
     public class FavAdapter extends RecyclerView.Adapter<FavAdapter.CustomViewHolder> {
         private ArrayList<favImg> mList;
-        ImageView setImage;
 
         public void delfavImgs(int i) {
             favImgs.remove(new favImg(i));
