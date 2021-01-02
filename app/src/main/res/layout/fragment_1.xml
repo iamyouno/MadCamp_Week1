@@ -7,34 +7,36 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp" />
-
-    </RelativeLayout>
-
     <ImageButton
         android:id="@+id/add_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/ic_person_add_alt_1_24px"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@android:drawable/ic_menu_add"
-        android:backgroundTint="@color/design_default_color_on_primary">
-
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageButton>
+
+    <EditText
+        android:id="@+id/searchView"
+        android:drawableLeft="@drawable/ic_search_24px"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/design_default_color_on_primary"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
