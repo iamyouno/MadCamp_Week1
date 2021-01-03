@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -193,8 +194,6 @@ public class Fragment1 extends Fragment {
         });
 
 
-
-
         //이름순 정렬
         Collections.sort(arrayList, new Comparator<UserModel>(){
             @Override
@@ -271,12 +270,11 @@ public class Fragment1 extends Fragment {
             viewHolder.name.setText(filtered_arrayList.get(position).getName());
             viewHolder.phone_number.setText(filtered_arrayList.get(position).getPhone_number());
 
-
             // 전화번호 편집 및 삭제
             viewHolder.edit_delete_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getActivity().openContextMenu(v);
+                    v.showContextMenu();
 //
 //                    arrayList.remove(position);
 //                    notifyDataSetChanged();
@@ -347,7 +345,7 @@ public class Fragment1 extends Fragment {
                 phone_number = (TextView) itemView.findViewById(R.id.phone_number);
                 edit_delete_button = (ImageButton) itemView.findViewById(R.id.edit_delete_button);
 
-                view.setOnCreateContextMenuListener(this); // 현재 클래스에서 oncreatecontextmenulistener 구현
+                edit_delete_button.setOnCreateContextMenuListener(this); // 현재 클래스에서 oncreatecontextmenulistener 구현
 
             }
 
@@ -388,9 +386,18 @@ public class Fragment1 extends Fragment {
                                     UserModel um = new UserModel();
                                     um.setName(strName);
                                     um.setPhone_number(strPhone);
-                                    arrayList.add(getAdapterPosition(), um);
+                                    arrayList.set(getAdapterPosition(), um);
 
-                                    notifyItemChanged(getAdapterPosition());
+                                    //이름순 정렬
+                                    Collections.sort(arrayList, new Comparator<UserModel>(){
+                                        @Override
+                                        public int compare(UserModel rhs, UserModel lhs){
+                                            return rhs.getName().compareTo(lhs.getName());
+                                        }
+                                    });
+                                    
+                                    notifyDataSetChanged();
+
 
                                     dialog.dismiss();
                                 }
@@ -402,17 +409,17 @@ public class Fragment1 extends Fragment {
 
                         case 1002: //DELETE 선택
                             arrayList.remove(getAdapterPosition());
-                            notifyItemRemoved(getAdapterPosition());
-                            notifyItemRangeChanged(getAdapterPosition(), arrayList.size());
-
+                            notifyDataSetChanged();
                             break;
 
                     }
+
                     return true;
                 }
             };
 
         }
+
 
     }
 
