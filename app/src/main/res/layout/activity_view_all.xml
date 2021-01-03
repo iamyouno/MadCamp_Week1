@@ -198,7 +198,8 @@
         android:textOn=""
         android:textOff=""
         android:checked="false"
-        style="?android:attr/borderlessButtonStyle"/>
+        style="?android:attr/borderlessButtonStyle"
+        />
 
     <ToggleButton
         android:id="@+id/heart2"

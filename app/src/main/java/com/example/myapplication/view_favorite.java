@@ -55,7 +55,6 @@ public class view_favorite extends AppCompatActivity {
                 view.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v){
                         int pos = getAdapterPosition();
-
                         imageView.setImageResource(mList.get(pos).getImage());
                     }
                 });

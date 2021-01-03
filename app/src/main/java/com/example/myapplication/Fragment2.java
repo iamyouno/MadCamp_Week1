@@ -1,15 +1,14 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
+import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +23,7 @@ public class Fragment2 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -32,9 +32,10 @@ public class Fragment2 extends Fragment {
         // Required empty public constructor
     }
 
+
+    TextView favimgnum;
     static ArrayList<favImg> favImgs = new ArrayList<>();
     static boolean[] heart_toggled = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -62,6 +63,7 @@ public class Fragment2 extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,6 +87,16 @@ public class Fragment2 extends Fragment {
                 startActivity(intent);
             }
         });
+
+        favimgnum = (TextView)view.findViewById(R.id.favimgnum);
+        favimgnum.setText(Integer.toString(0));
+
         return view;
+    }
+
+    @Override
+    public void onResume(){
+        favimgnum.setText(Integer.toString(viewAll.favnum));
+        super.onResume();
     }
 }
