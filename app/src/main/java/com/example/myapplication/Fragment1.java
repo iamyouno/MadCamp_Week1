@@ -395,7 +395,7 @@ public class Fragment1 extends Fragment {
                                             return rhs.getName().compareTo(lhs.getName());
                                         }
                                     });
-                                    
+
                                     notifyDataSetChanged();
 
 
