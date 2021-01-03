@@ -11,7 +11,8 @@
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".view_favorite"/>
         <activity android:name=".viewAll"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,5 +20,6 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.DIAL_PHONE"/>
 
 </manifest>
