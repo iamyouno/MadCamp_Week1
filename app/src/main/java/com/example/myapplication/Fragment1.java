@@ -274,7 +274,7 @@ public class Fragment1 extends Fragment {
             viewHolder.edit_delete_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.showContextMenu();
+//                    v.showContextMenu();
 //
 //                    arrayList.remove(position);
 //                    notifyDataSetChanged();
