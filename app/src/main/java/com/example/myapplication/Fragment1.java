@@ -37,6 +37,7 @@ import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.Switch;
 import android.widget.TextClock;
 import android.widget.TextView;
@@ -203,7 +204,7 @@ public class Fragment1 extends Fragment {
         });
 
         //수정함_adapter = new CustomAdapter(arrayList);
-        adapter = new CustomAdapter(arrayList);
+        adapter = new CustomAdapter(getActivity(), arrayList);
         recyclerView.setAdapter(adapter);
         return view;
 
@@ -246,14 +247,16 @@ public class Fragment1 extends Fragment {
 
         Context mcontext;
 
-        public CustomAdapter(ArrayList<UserModel> arrayList){
+
+        public CustomAdapter(Context context, ArrayList<UserModel> arrayList){
             this.arrayList = arrayList;
             this.filtered_arrayList = arrayList;
+            this.mcontext = context;
         }
 
-//        public CustomAdapter(Context context, ArrayList<UserModel> list){
-//            this.arrayList = list;
-//            this.mcontext = context;
+//        public CustomAdapter(ArrayList<UserModel> list){
+//            this.arrayList = arrayList;
+//            this.filtered_arrayList = arrayList;
 //        }
 
         @Override
@@ -269,15 +272,19 @@ public class Fragment1 extends Fragment {
             viewHolder.phone_number.setText(filtered_arrayList.get(position).getPhone_number());
 
 
-
-            // 전화번호 삭제
+            // 전화번호 편집 및 삭제
             viewHolder.edit_delete_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    arrayList.remove(position);
-                    notifyDataSetChanged();
+                    getActivity().openContextMenu(v);
+//
+//                    arrayList.remove(position);
+//                    notifyDataSetChanged();
+
                 }
             });
+
+
 
             //전화걸기
             viewHolder.phone_number.setOnClickListener(new View.OnClickListener(){
@@ -328,7 +335,7 @@ public class Fragment1 extends Fragment {
             };
         }
 
-        //implements~~ : 컨텍스트 메뉴 사용 위함
+        //implements~~ : 컨텍스트 메뉴 사용 위함 --> contextmenu로 edit, delete 구현
         public class viewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
             TextView name;
             TextView phone_number;
@@ -381,7 +388,7 @@ public class Fragment1 extends Fragment {
                                     UserModel um = new UserModel();
                                     um.setName(strName);
                                     um.setPhone_number(strPhone);
-                                    arrayList.add(um);
+                                    arrayList.add(getAdapterPosition(), um);
 
                                     notifyItemChanged(getAdapterPosition());
 
@@ -406,7 +413,6 @@ public class Fragment1 extends Fragment {
             };
 
         }
-
 
     }
 
