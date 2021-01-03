@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     android:background="#FBFBFB"
     android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Fragment2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="662dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <ImageButton
@@ -22,7 +23,6 @@
             android:layout_height="200dp"
             android:layout_margin="10dp"
             android:layout_marginTop="60dp"
-            android:background="@drawable/some_selector_name"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitCenter"
             android:src="@drawable/allimg" />
@@ -54,7 +54,6 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="200dp"
-            android:background="@drawable/some_selector_name"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitCenter"
             android:src="@drawable/favimg" />
