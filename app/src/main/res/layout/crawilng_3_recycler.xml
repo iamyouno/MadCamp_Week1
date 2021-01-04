@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/team1"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,12 +18,13 @@
 
     <TextView
         android:id="@+id/team2"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:gravity="right"/>
 
     <TextView
         android:id="@+id/score"

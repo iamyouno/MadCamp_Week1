@@ -37,8 +37,8 @@ public class crawling_3 extends AppCompatActivity {
 //        String date = editText.getText().toString();
         String date = "20210104";
 //          url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query="+date.substring(0, 3)+"년%2"+date.substring(4, 5)+"월%2"+date.substring(6, 7)+"일%20%20경기일정";
-//        url = "https://search.daum.net/search?w=tot&q="+date.substring(0, 3)+"년%2"+date.substring(4, 5)+"월%2"+date.substring(6, 7)+"일%20해외축구%20일정&DA=Z9T&rtmaxcoll=";
-        url = "https://search.daum.net/search?w=tot&q=2021%EB%85%84%201%EC%9B%94%204%EC%9D%BC%20%ED%95%B4%EC%99%B8%EC%B6%95%EA%B5%AC%20%EC%9D%BC%EC%A0%95&DA=Z9T&rtmaxcoll=";
+        url = "https://search.daum.net/search?w=tot&q="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20일정&DA=Z9T&rtmaxcoll=";
+//        url = "https://search.daum.net/search?w=tot&q="+"2021"+"년%2"+"01"+"월%2"+"04"+"일%20해외축구%20일정&DA=Z9T&rtmaxcoll=";
 
         SportJsoup sportJsoup = new SportJsoup();
         sportJsoup.execute();
@@ -93,10 +93,10 @@ public class crawling_3 extends AppCompatActivity {
                 for (Element e : elements ){
 
                     List<String> teams = e.select("div.team_item > div.info_item > div.team_name").eachText();
-//                    List<String> scores = e.select("div.team_item > div.score_info > span.txt_num score_num > span.screen_out").eachText();
+                    List<String> scores = e.select("div.team_item > div.score_info").eachText();
 
                     GameResult gameResult = new GameResult();
-//                    gameResult.setScore(scores.get(0));
+                    gameResult.setScore(scores.get(0).substring(3, 4)+":"+scores.get(1).substring(3, 4));
                     gameResult.setTeam1(teams.get(0));
                     gameResult.setTeam2(teams.get(1));
                     gameResults.add(gameResult);
