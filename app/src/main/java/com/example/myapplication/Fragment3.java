@@ -73,6 +73,15 @@ public class Fragment3 extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+
+
+
+
+
+
+
         return view;
     }
 }
