@@ -288,7 +288,7 @@ public class Fragment1 extends Fragment {
             viewHolder.phone_number.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View V){
-                    phone = arrayList.get(position).getPhone_number();
+                    phone = filtered_arrayList.get(position).getPhone_number();
                     String tel = "tel:" + phone;
                     startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
                 }
@@ -330,7 +330,9 @@ public class Fragment1 extends Fragment {
                     filtered_arrayList = (ArrayList<UserModel>)results.values;
                     notifyDataSetChanged();
                 }
+
             };
+
         }
 
         //implements~~ : 컨텍스트 메뉴 사용 위함 --> contextmenu로 edit, delete 구현
