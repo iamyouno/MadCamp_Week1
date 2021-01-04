@@ -64,12 +64,20 @@ public class Fragment3 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_3, container, false);
-        TextView textView = (TextView)view.findViewById(R.id.crawling_1);
-        textView.setOnClickListener(new View.OnClickListener() {
+        TextView textView1 = (TextView)view.findViewById(R.id.crawling_1);
+        textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), crawling_1.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+
+        TextView textView3 = (TextView)view.findViewById(R.id.crawling_3);
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), crawling_3.class);
                 startActivity(intent);
             }
         });
