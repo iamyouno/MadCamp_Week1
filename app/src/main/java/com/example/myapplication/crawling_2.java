@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import com.bumptech.glide.Glide;
@@ -37,18 +38,43 @@ import java.util.stream.Stream;
 public class crawling_2 extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ArrayList<NewsModel> list = new ArrayList<>();
+    private ArrayList<NewsModel> list;
+
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crawling_2);
 
+        //SwipeRefreshLayout
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //여기서 새로고침
+                new Description().execute();
+
+                //새로고침 아이콘 삭제
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+
 
         //AsyncTask 작동시키기(파싱)
         new Description().execute();
     }
+
+
+
+
+//    @Override
+//    protected void onResume(Bundle saved)
 
     private class Description extends AsyncTask<Void, Void, Void> {
         //진행바 표시
@@ -67,6 +93,7 @@ public class crawling_2 extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... params){
+            list = new ArrayList<>();
             try{
                 Document doc = Jsoup.connect("https://news.naver.com/").get();
                 //필요 내용만 지정
@@ -76,24 +103,21 @@ public class crawling_2 extends AppCompatActivity {
                 for(Element elem_i_s: mElementDataSize_img_section){
                     //뉴스 목록에서 이미지, 섹션 데이터 추출함
                     String news_section = elem_i_s.select("div[class=com_header] h4 a").text();
+
                     String news_imgUrl = elem_i_s.select("div[class=com_list] dl[class=mtype_img] dt a img").attr("src");
 
                     List<String> news_title_ = elem_i_s.select("div[class=com_list] div[class=mtype_list_wide] ul[class=mlist2 no_bg] li a").eachText();
 
-
-
-
+                    String news_imgTitle = elem_i_s.select("div[class=com_list] dl[class=mtype_img] dd a").text();
 
                     NewsModel nm_i_s = new NewsModel();
                     nm_i_s.setNews_section(news_section);
                     nm_i_s.setNews_imgUrl(news_imgUrl);
                     nm_i_s.setNews_title(news_title_);
+                    nm_i_s.setNews_imgTitle(news_imgTitle);
                     list.add(nm_i_s);
 
                 }
-
-
-
 
             }
             catch(IOException e){
@@ -121,17 +145,21 @@ public class crawling_2 extends AppCompatActivity {
     public class NewsModel{
         private String news_section;
         private String news_imgUrl;
+        private String news_imgTitle;
         private List<String> news_title;
 
 
         public String getNews_section() { return news_section; }
         public void setNews_section(String news_section) { this.news_section = news_section; }
+
         public String getNews_imgUrl() { return news_imgUrl; }
         public void setNews_imgUrl(String news_imgUrl) { this.news_imgUrl = news_imgUrl; }
 
         public List<String> getNews_title() { return news_title; }
         public void setNews_title(List<String> news_title_) { this.news_title = news_title_; }
 
+        public String getNews_imgTitle() { return news_imgTitle; }
+        public void setNews_imgTitle(String news_imgTitle) { this.news_imgTitle = news_imgTitle; }
     }
 
 
@@ -144,24 +172,30 @@ public class crawling_2 extends AppCompatActivity {
             private TextView news_section;
             private TextView news_title_1, news_title_2, news_title_3, news_title_4, news_title_5;
             private ImageView news_imgUrl;
+            private TextView news_img_title;
 
             public ViewHolder(View itemView){
                 super(itemView);
 
-
                 news_section = (TextView) itemView.findViewById(R.id.news_section);
+
                 news_imgUrl = (ImageView) itemView.findViewById(R.id.news_img);
+
                 news_title_1 = (TextView) itemView.findViewById(R.id.news_title_1);
                 news_title_2 = (TextView) itemView.findViewById(R.id.news_title_2);
                 news_title_3 = (TextView) itemView.findViewById(R.id.news_title_3);
                 news_title_4 = (TextView) itemView.findViewById(R.id.news_title_4);
                 news_title_5 = (TextView) itemView.findViewById(R.id.news_title_5);
+
+                news_img_title = (TextView) itemView.findViewById(R.id.news_img_title);
+
             }
         };
 
         //생성자
         public NewsAdapter(ArrayList<NewsModel> list){
             this.list_i_s = list;
+            //list_i_s에서 첫번재 인덱스 비어있어서 제거함
             list_i_s.remove(0);
         }
 
@@ -178,8 +212,6 @@ public class crawling_2 extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder holder, int position){
 
-
-
             RequestOptions requestOptions = new RequestOptions();
             Stream<String> stringStream_1 = list_i_s.get(position).getNews_title().stream();
             Stream<String> stringStream_2 = list_i_s.get(position).getNews_title().stream();
@@ -194,7 +226,7 @@ public class crawling_2 extends AppCompatActivity {
             stringStream_1.limit(1).forEachOrdered(item_1 -> holder.news_title_1.setText(item_1));
 
 
-//            holder.news_title.setText(String.valueOf(list_i_s.get(position).getNews_title().stream()));
+            holder.news_img_title.setText(list_i_s.get(position).getNews_imgTitle());
             holder.news_section.setText(list_i_s.get(position).getNews_section());
             Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(list_i_s.get(position).getNews_imgUrl()).into(holder.news_imgUrl);
         }
