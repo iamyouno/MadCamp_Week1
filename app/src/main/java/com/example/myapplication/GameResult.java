@@ -4,7 +4,8 @@ public class GameResult {
     private String team1;
     private String team2;
     private String score;
-
+    private String logo1;
+    private String logo2;
     public GameResult(){
     }
 
@@ -20,6 +21,14 @@ public class GameResult {
         this.score = score;
     }
 
+    public void setLogo1(String logo1){
+        this.logo1 = logo1;
+    }
+
+    public void setLogo2(String logo2){
+        this.logo2 = logo2;
+    }
+
     public String getTeam1(){
         return team1;
 
@@ -31,5 +40,13 @@ public class GameResult {
 
     public String getScore(){
         return score;
+    }
+
+    public String getLogo1(){
+        return logo1;
+    }
+
+    public String getLogo2(){
+        return logo2;
     }
 }
