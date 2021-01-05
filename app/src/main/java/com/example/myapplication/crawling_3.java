@@ -4,8 +4,6 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,27 +12,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 public class crawling_3 extends AppCompatActivity {
 
-//    ArrayList<GameResult> gameResults = new ArrayList<>();
     ArrayList<GameResult> gameResults;
     RecyclerView recyclerView;
 
@@ -55,7 +46,7 @@ public class crawling_3 extends AppCompatActivity {
                         break;
                     default:
                         String date = editText.getText().toString();
-                        url = "https://search.daum.net/search?w=tot&q="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20일정&DA=Z9T&rtmaxcoll=";
+                        url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20경기일정";
                         InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                         manager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                         SportJsoup sportJsoup = new SportJsoup();
@@ -107,7 +98,6 @@ public class crawling_3 extends AppCompatActivity {
             holder.score.setText(gr.getScore());
             Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo1()).into(holder.logo1);
             Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo2()).into(holder.logo2);
-
         }
 
         @Override
@@ -122,19 +112,18 @@ public class crawling_3 extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try{
                 Document document = Jsoup.connect(url).get();
-                Elements elements = document.select("ul.list_game > li > div.wrap_game > div.team_cont > a.link_sports");
+                Elements elements = document.select("tbody._scroll_content > tr");
                 gameResults = new ArrayList<>();
                 for (Element e : elements ){
 
-                    List<String> teams = e.select("div.team_item > div.info_item > div.team_name").eachText();
-                    List<String> scores = e.select("div.team_item > div.score_info").eachText();
-                    List<String> logos = e.select("div.team_item > div.info_item > div.team_logo > img[src $= png]").eachText();
                     GameResult gameResult = new GameResult();
-                    gameResult.setScore(scores.get(0).substring(3, 4)+":"+scores.get(1).substring(3, 4));
-                    gameResult.setTeam1(teams.get(0));
-                    gameResult.setTeam2(teams.get(1));
-                    gameResult.setLogo1(logos.get(0));
-                    gameResult.setLogo2(logos.get(1));
+
+                    gameResult.setTeam1(e.select("td.l_team > span[class=txt_name txt_pit]").text());
+                    gameResult.setTeam2(e.select("td.r_team > span[class=txt_name txt_pit]").text());
+                    gameResult.setScore(e.select("td.score").text());
+                    gameResult.setLogo1(e.select("td.l_team > a > img").attr("src"));
+                    gameResult.setLogo2(e.select("td.r_team > a > img").attr("src"));
+
                     gameResults.add(gameResult);
                 }
 
@@ -152,6 +141,5 @@ public class crawling_3 extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
     }
-
 }
 
