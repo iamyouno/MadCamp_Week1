@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment3"
-    android:id="@+id/fragment_3">
+    tools:context=".Fragment_crawling_2"
+    android:id="@+id/fragment_crawling_2">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -22,7 +38,7 @@
 
         <ImageButton
             android:id="@+id/crawling_1"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="네이버"
             android:src="@drawable/naver"
@@ -32,7 +48,7 @@
 
         <ImageButton
             android:id="@+id/crawling_2"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="뉴스"
             android:src="@drawable/navernews_stand_20160802"
@@ -42,7 +58,7 @@
 
         <ImageButton
             android:id="@+id/crawling_3"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="야구 경기"
             android:src="@drawable/kbo"
@@ -50,8 +66,7 @@
             android:background="@android:color/transparent"
             android:layout_marginBottom="50dp"/>
 
-
-
     </LinearLayout>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

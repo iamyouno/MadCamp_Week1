@@ -30,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/news_img"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="120dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitCenter"
@@ -41,10 +41,11 @@
                 android:id="@+id/news_img_title"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginLeft="10dp"
                 android:text="사진 제목"
-                android:autoLink="web"/>
+                android:textStyle="bold"
+                android:textColor="#031681"/>
 
         </LinearLayout>
 
@@ -53,41 +54,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:autoLink="web"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/news_title_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:autoLink="web"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/news_title_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:autoLink="web"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/news_title_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:autoLink="web"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/news_title_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:autoLink="web"/>
+            android:textColor="@color/black"/>
 
 
 

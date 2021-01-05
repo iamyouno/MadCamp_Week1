@@ -1,30 +1,25 @@
 package com.example.myapplication;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.util.Linkify;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.text.util.Linkify;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -33,40 +28,41 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.jsoup.select.Evaluator;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 
-public class crawling_2 extends AppCompatActivity {
+public class Fragment_crawling_2 extends Fragment {
+    View view;
+    RecyclerView recyclerView;
+    ArrayList<Fragment_crawling_2.NewsModel> list;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
-    private RecyclerView recyclerView;
-    private ArrayList<NewsModel> list;
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
+
+    public static Fragment_crawling_2 newInstance(){
+        return new Fragment_crawling_2();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crawling_2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        view = inflater.inflate(R.layout.fragment_crawling_2, container, false);
 
         //SwipeRefreshLayout
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
 
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 //여기서 새로고침
-                new Description().execute();
+                new Fragment_crawling_2.Description().execute();
 
                 //새로고침 아이콘 삭제
                 mSwipeRefreshLayout.setRefreshing(false);
@@ -74,29 +70,26 @@ public class crawling_2 extends AppCompatActivity {
         });
 
         //AsyncTask 작동시키기(파싱)
-        new Description().execute();
+        new Fragment_crawling_2.Description().execute();
+
+        return view;
 
     }
 
-
-
-//    @Override
-//    protected void onResume(Bundle saved)
-
     private class Description extends AsyncTask<Void, Void, Void> {
-        //진행바 표시
-        private ProgressDialog progressDialog;
+//        //진행바 표시
+//        private ProgressDialog progressDialog;
 
-        @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-
-            //진행 다이얼로그 시작
-            progressDialog = new ProgressDialog(crawling_2.this);
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressDialog.setMessage("Please Wait");
-            progressDialog.show();
-        }
+//        @Override
+//        protected void onPreExecute(){
+//            super.onPreExecute();
+//
+////            //진행 다이얼로그 시작
+////            progressDialog = new ProgressDialog(getActivity());
+////            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+////            progressDialog.setMessage("Please Wait");
+////            progressDialog.show();
+//        }
 
         @Override
         protected Void doInBackground(Void... params){
@@ -119,7 +112,7 @@ public class crawling_2 extends AppCompatActivity {
                     String news_imgTitle = elem_i_s.select("div[class=com_list] dl[class=mtype_img] dd a").text();
                     String news_imgTitle_URL = elem_i_s.select("div[class=com_list] dl[class=mtype_img] dd a").attr("href");
 
-                    NewsModel nm_i_s = new NewsModel();
+                    Fragment_crawling_2.NewsModel nm_i_s = new Fragment_crawling_2.NewsModel();
                     nm_i_s.setNews_section(news_section);
 
                     nm_i_s.setNews_imgUrl(news_imgUrl);
@@ -147,12 +140,12 @@ public class crawling_2 extends AppCompatActivity {
             //ArrayList adapter랑 연결
             NewsAdapter newsAdapter_img_section = new NewsAdapter(list);
 //            NewsAdapter newsAdapter_title = new NewsAdapter(list_title);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(newsAdapter_img_section);
 //            recyclerView.setAdapter(newsAdapter_title);
 
-            progressDialog.dismiss();
+//            progressDialog.dismiss();
         }
 
 
@@ -170,12 +163,12 @@ public class crawling_2 extends AppCompatActivity {
         private List<String> news_title_URL;
 
 
-        Linkify.TransformFilter mTransform = new Linkify.TransformFilter(){
-            @Override
-            public String transformUrl(Matcher match, String url){
-                return "";
-            }
-        };
+//        Linkify.TransformFilter mTransform = new Linkify.TransformFilter(){
+//            @Override
+//            public String transformUrl(Matcher match, String url){
+//                return "";
+//            }
+//        };
 
         public String getNews_section() { return news_section; }
         public void setNews_section(String news_section) { this.news_section = news_section; }
@@ -196,9 +189,9 @@ public class crawling_2 extends AppCompatActivity {
     }
 
 
-    public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
+    public class NewsAdapter extends RecyclerView.Adapter<Fragment_crawling_2.NewsAdapter.ViewHolder>{
         //데이터 배열 선언
-        private ArrayList<NewsModel> list_i_s;
+        private ArrayList<Fragment_crawling_2.NewsModel> list_i_s;
 //        private ArrayList<NewsModel> list_t;
 
         public class ViewHolder extends RecyclerView.ViewHolder{
@@ -228,7 +221,7 @@ public class crawling_2 extends AppCompatActivity {
         };
 
         //생성자
-        public NewsAdapter(ArrayList<NewsModel> list){
+        public NewsAdapter(ArrayList<Fragment_crawling_2.NewsModel> list){
             this.list_i_s = list;
             //list_i_s에서 첫번재 인덱스 비어있어서 제거함
             list_i_s.remove(0);
@@ -238,14 +231,14 @@ public class crawling_2 extends AppCompatActivity {
 
         @NonNull
         @Override
-        public NewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        public Fragment_crawling_2.NewsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.crawling_chart, parent, false);
-            return new ViewHolder(view);
+            return new Fragment_crawling_2.NewsAdapter.ViewHolder(view);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void onBindViewHolder(@NonNull NewsAdapter.ViewHolder holder, int position){
+        public void onBindViewHolder(@NonNull Fragment_crawling_2.NewsAdapter.ViewHolder holder, int position){
 
             RequestOptions requestOptions = new RequestOptions();
             Stream<String> stringStream_1 = list_i_s.get(position).getNews_title().stream();
@@ -337,5 +330,4 @@ public class crawling_2 extends AppCompatActivity {
 
 
     }
-
 }
