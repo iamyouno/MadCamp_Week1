@@ -1,9 +1,14 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,14 +18,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.util.ArrayList;
+import java.util.Date;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -28,6 +39,7 @@ public class crawling_3 extends AppCompatActivity {
 
     ArrayList<GameResult> gameResults;
     RecyclerView recyclerView;
+    DatePickerDialog.OnDateSetListener listener;
 
     String url;
     @Override
@@ -36,30 +48,56 @@ public class crawling_3 extends AppCompatActivity {
         setContentView(R.layout.activity_crawling_3);
 
         recyclerView = findViewById(R.id.recyclerView_sport);
-        EditText editText = (EditText)findViewById(R.id.date);
-
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//        EditText editText = (EditText)findViewById(R.id.date);
+//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                switch(actionId){
+//                    case EditorInfo.IME_ACTION_SEARCH:
+//                        break;
+//                    default:
+//                        String date = editText.getText().toString();
+//                        /// 문제 : 12월 31일은 %2012 1월은 %201 로 인식
+//                        url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20경기일정";
+//                        InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//                        manager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+//                        SportJsoup sportJsoup = new SportJsoup();
+//                        sportJsoup.execute();
+//
+//                        return false;
+//                }
+//                return true;
+//            }
+//        });
+        Button button = findViewById(R.id.datePicker);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                switch(actionId){
-                    case EditorInfo.IME_ACTION_SEARCH:
-                        break;
-                    default:
-                        String date = editText.getText().toString();
-                        url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20경기일정";
-                        InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                        manager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                        SportJsoup sportJsoup = new SportJsoup();
-                        sportJsoup.execute();
-
-                        return false;
-                }
-                return true;
+            public void onClick(View view){
+                selectDate();
             }
         });
 
+
     }
 
+    public void selectDate(){
+        listener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Toast.makeText(getApplicationContext(), "34343434", Toast.LENGTH_SHORT);
+                String yearS = Integer.toString(year);
+                String monthS = Integer.toString(month+1);
+                String dayS = Integer.toString(dayOfMonth);
+                url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query=" + yearS + "년%20" + monthS + "월%20" + dayS + "일%20해외축구%20경기일정";
+//                url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query=2021년%201월%204일%20해외축구%20경기일정";
+                SportJsoup sportJsoup = new SportJsoup();
+                sportJsoup.execute();
+            }
+        };
+
+        DatePickerDialog dialog = new DatePickerDialog(this, listener, 2021, 0, 1);
+        dialog.show();
+    }
 
     public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
         private ArrayList<GameResult> grs;
