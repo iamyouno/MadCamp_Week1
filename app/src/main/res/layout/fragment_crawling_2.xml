@@ -37,7 +37,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/crawling_1"
+            android:id="@+id/crawling_1_2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="네이버"
@@ -47,7 +47,7 @@
             android:layout_marginBottom="50dp"/>
 
         <ImageButton
-            android:id="@+id/crawling_2"
+            android:id="@+id/crawling_2_2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="뉴스"
@@ -57,7 +57,7 @@
             android:layout_marginBottom="50dp"/>
 
         <ImageButton
-            android:id="@+id/crawling_3"
+            android:id="@+id/crawling_3_2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="야구 경기"

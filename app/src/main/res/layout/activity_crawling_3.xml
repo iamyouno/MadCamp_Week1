@@ -17,21 +17,9 @@
             android:id="@+id/datePicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:text="Date"
             android:layout_gravity="center"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_sport"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="20dp"
-            android:overScrollMode="never"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datePicker"/>
 
         <TextView
             android:id="@+id/noResult"
@@ -39,10 +27,25 @@
             android:layout_height="wrap_content"
             android:textColor="#373737"
             android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
             app:layout_constraintBottom_toBottomOf="@+id/recyclerView_sport"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_sport"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-50dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datePicker"/>
+
+
 
     </LinearLayout>
 
@@ -57,7 +60,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/crawling_1"
+            android:id="@+id/crawling_1_3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="네이버"
@@ -67,7 +70,7 @@
             android:layout_marginBottom="50dp"/>
 
         <ImageButton
-            android:id="@+id/crawling_2"
+            android:id="@+id/crawling_2_3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="뉴스"
@@ -77,7 +80,7 @@
             android:layout_marginBottom="50dp"/>
 
         <ImageButton
-            android:id="@+id/crawling_3"
+            android:id="@+id/crawling_3_3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="야구 경기"

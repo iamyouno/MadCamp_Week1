@@ -1,12 +1,15 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,10 +52,16 @@ public class Fragment_crawling_3 extends Fragment {
     int dayf=1;
     View view;
 
+
     public static Fragment_crawling_3 newInstance(String param1, String param2) {
         return new Fragment_crawling_3();
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,14 +74,14 @@ public class Fragment_crawling_3 extends Fragment {
         Button button = view.findViewById(R.id.datePicker);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View v){
                 TextView textView = (TextView)view.findViewById(R.id.noResult);
                 textView.setText("");
                 selectDate();
             }
         });
 
-        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2);
+        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2_3);
         crawling_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,13 +91,13 @@ public class Fragment_crawling_3 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.activity_crawling_3, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
 
-        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1);
+        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1_3);
         crawling_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,9 +107,10 @@ public class Fragment_crawling_3 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.activity_crawling_3, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
 

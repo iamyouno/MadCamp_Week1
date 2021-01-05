@@ -38,6 +38,13 @@ public class Fragment_crawling_1 extends Fragment {
     public static Fragment_crawling_1 newInstance(){
         return new Fragment_crawling_1();
     }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class Fragment_crawling_1 extends Fragment {
         realTask.execute();
 
 
-        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2);
+        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2_1);
         crawling_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +64,13 @@ public class Fragment_crawling_1 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.activity_crawling_1, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
 
-        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3);
+        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3_1);
         crawling_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +80,7 @@ public class Fragment_crawling_1 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.activity_crawling_1, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

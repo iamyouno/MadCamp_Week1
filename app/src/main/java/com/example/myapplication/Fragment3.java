@@ -1,9 +1,11 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,13 +30,13 @@ public class Fragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_3, container, false);
 
-//        Fragment importFragment = new Fragment_crawling_1();
-//
-//        FragmentManager fragmentManager_1 = getActivity().getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager_1.beginTransaction();
-//        fragmentTransaction.replace(R.id.fragment_3, importFragment);
-////                fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
+        Fragment importFragment = new Fragment_crawling_2();
+
+        FragmentManager fragmentManager_1 = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction_1 = fragmentManager_1.beginTransaction();
+        fragmentTransaction_1.add(R.id.fragment_3, importFragment);
+        fragmentTransaction_1.addToBackStack(null);
+        fragmentTransaction_1.commit();
 
         ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1);
         crawling_1.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +51,7 @@ public class Fragment3 extends Fragment {
                 fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
 
@@ -79,7 +82,7 @@ public class Fragment3 extends Fragment {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_3, importFragment);
-//                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });

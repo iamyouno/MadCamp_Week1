@@ -52,6 +52,12 @@ public class Fragment_crawling_2 extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_crawling_2, container, false);
 
@@ -75,7 +81,7 @@ public class Fragment_crawling_2 extends Fragment {
         //AsyncTask 작동시키기(파싱)
         new Fragment_crawling_2.Description().execute();
 
-        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1);
+        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1_2);
         crawling_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,13 +91,14 @@ public class Fragment_crawling_2 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
 
-        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3);
+        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3_2);
         crawling_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,13 +108,11 @@ public class Fragment_crawling_2 extends Fragment {
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
-
-
 
 
         return view;
@@ -284,12 +289,6 @@ public class Fragment_crawling_2 extends Fragment {
             Stream<String> stringStream_3 = list_i_s.get(position).getNews_title().stream();
             Stream<String> stringStream_4 = list_i_s.get(position).getNews_title().stream();
             Stream<String> stringStream_5 = list_i_s.get(position).getNews_title().stream();
-
-            Stream<String> stringStream_1_URL = list_i_s.get(position).getNews_title_URL().stream();
-            Stream<String> stringStream_2_URL = list_i_s.get(position).getNews_title_URL().stream();
-            Stream<String> stringStream_3_URL = list_i_s.get(position).getNews_title_URL().stream();
-            Stream<String> stringStream_4_URL = list_i_s.get(position).getNews_title_URL().stream();
-            Stream<String> stringStream_5_URL = list_i_s.get(position).getNews_title_URL().stream();
 
 
             stringStream_5.forEachOrdered(item_5 -> holder.news_title_5.setText(item_5));
