@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/click"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crawling_1">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/crawling_text1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"
+            android:background="@null"/>
+
+        <TextView
+            android:id="@+id/crawling_text2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text4"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text5"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text6"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text8"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text9"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text10"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text11"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text12"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text13"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text14"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text15"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text16"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text17"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text18"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text19"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+        <TextView
+            android:id="@+id/crawling_text20"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="left"
+            android:textColorLink="#000000"/>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
