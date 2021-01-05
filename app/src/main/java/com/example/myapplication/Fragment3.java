@@ -28,13 +28,29 @@ public class Fragment3 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_3, container, false);
 
-        Fragment importFragment = new Fragment_crawling_2();
+//        Fragment importFragment = new Fragment_crawling_1();
+//
+//        FragmentManager fragmentManager_1 = getActivity().getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager_1.beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment_3, importFragment);
+////                fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
 
-        FragmentManager fragmentManager_1 = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager_1.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_3, importFragment);
-//                fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1);
+        crawling_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_1();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2);
         crawling_2.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +59,22 @@ public class Fragment3 extends Fragment {
 
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_2();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_3, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3);
+        crawling_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_3();
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

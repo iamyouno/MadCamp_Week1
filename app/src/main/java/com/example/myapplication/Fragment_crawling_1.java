@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -13,6 +15,7 @@ import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -42,6 +45,40 @@ public class Fragment_crawling_1 extends Fragment {
         view = inflater.inflate(R.layout.activity_crawling_1, container, false);
         realTask.stop = true;
         realTask.execute();
+
+
+        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2);
+        crawling_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_2();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_crawling_1, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3);
+        crawling_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_3();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_crawling_1, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
         return view;
     }
 

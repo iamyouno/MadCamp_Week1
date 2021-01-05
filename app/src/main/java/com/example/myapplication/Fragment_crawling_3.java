@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +39,7 @@ import java.util.ArrayList;
  */
 public class Fragment_crawling_3 extends Fragment {
 
-    ArrayList<GameResult> gameResults;
+    ArrayList<Fragment_crawling_3.GameResult> gameResults;
     RecyclerView recyclerView;
     DatePickerDialog.OnDateSetListener listener;
 
@@ -54,6 +57,9 @@ public class Fragment_crawling_3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.activity_crawling_3, container, false);
+
         // Inflate the layout for this fragment
         recyclerView = view.findViewById(R.id.recyclerView_sport);
         Button button = view.findViewById(R.id.datePicker);
@@ -65,7 +71,41 @@ public class Fragment_crawling_3 extends Fragment {
                 selectDate();
             }
         });
-        return inflater.inflate(R.layout.activity_crawling_3, container, false);
+
+        ImageButton crawling_2 = (ImageButton) view.findViewById(R.id.crawling_2);
+        crawling_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_2();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_crawling_3, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1);
+        crawling_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
+                Fragment importFragment = new Fragment_crawling_3();
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_crawling_3, importFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+
+        return view;
     }
 
     public void selectDate(){
@@ -89,8 +129,60 @@ public class Fragment_crawling_3 extends Fragment {
         dialog.show();
     }
 
-    public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-        private ArrayList<GameResult> grs;
+    public class GameResult {
+        private String team1;
+        private String team2;
+        private String score;
+        private String logo1;
+        private String logo2;
+        public GameResult(){
+        }
+
+        public void setTeam1(String team1){
+            this.team1 = team1;
+        }
+
+        public void setTeam2(String team2){
+            this.team2 = team2;
+        }
+
+        public void setScore(String score){
+            this.score = score;
+        }
+
+        public void setLogo1(String logo1){
+            this.logo1 = logo1;
+        }
+
+        public void setLogo2(String logo2){
+            this.logo2 = logo2;
+        }
+
+        public String getTeam1(){
+            return team1;
+
+        }
+
+        public String getTeam2(){
+            return team2;
+        }
+
+        public String getScore(){
+            return score;
+        }
+
+        public String getLogo1(){
+            return logo1;
+        }
+
+        public String getLogo2(){
+            return logo2;
+        }
+    }
+
+
+    public class RecyclerAdapter extends RecyclerView.Adapter<Fragment_crawling_3.RecyclerAdapter.ViewHolder> {
+        private ArrayList<Fragment_crawling_3.GameResult> grs;
 
         public class ViewHolder extends RecyclerView.ViewHolder{
             TextView team1, team2, score;
@@ -106,7 +198,7 @@ public class Fragment_crawling_3 extends Fragment {
             }
         }
 
-        public RecyclerAdapter(ArrayList<GameResult> list){
+        public RecyclerAdapter(ArrayList<Fragment_crawling_3.GameResult> list){
             this.grs = list;
             if (list.isEmpty()){
                 noResult();
@@ -117,15 +209,16 @@ public class Fragment_crawling_3 extends Fragment {
         }
 
         @Override
-        public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public Fragment_crawling_3.RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.crawilng_3_recycler, parent, false);
-            return new RecyclerAdapter.ViewHolder(view);
+            return new Fragment_crawling_3.RecyclerAdapter.ViewHolder(view);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
+        public void onBindViewHolder(Fragment_crawling_3.RecyclerAdapter.ViewHolder holder, int position) {
             RequestOptions requestOptions = new RequestOptions();
+
             GameResult gr = grs.get(position);
             if (gameResults.isEmpty()){
 

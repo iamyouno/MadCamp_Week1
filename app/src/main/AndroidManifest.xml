@@ -16,6 +16,10 @@
             android:name=".crawling_2"
             android:label="@string/title_activity_crawling_2"
             android:theme="@style/Theme.MyApplication.NoActionBar"></activity>
+        <activity
+            android:name=".crawling_3"
+            android:theme="@style/Theme.MyApplication.NoActionBar"></activity>
+
         <activity android:name=".view_favorite" />
         <activity android:name=".viewAll" />
         <activity
