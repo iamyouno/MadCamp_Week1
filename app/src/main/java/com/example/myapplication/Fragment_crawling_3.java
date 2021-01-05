@@ -1,43 +1,40 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
+
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.Date;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-
-public class crawling_3 extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link Fragment_crawling_3#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Fragment_crawling_3 extends Fragment {
 
     ArrayList<GameResult> gameResults;
     RecyclerView recyclerView;
@@ -47,23 +44,28 @@ public class crawling_3 extends AppCompatActivity {
     int yearf=2021;
     int monthf=0;
     int dayf=1;
+    View view;
+
+    public static Fragment_crawling_3 newInstance(String param1, String param2) {
+        return new Fragment_crawling_3();
+    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crawling_3);
-        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
-        recyclerView = findViewById(R.id.recyclerView_sport);
-        Button button = findViewById(R.id.datePicker);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        recyclerView = view.findViewById(R.id.recyclerView_sport);
+        Button button = view.findViewById(R.id.datePicker);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Toast.makeText(getApplicationContext(), "onClick", Toast.LENGTH_SHORT).show();
-                TextView textView = (TextView)findViewById(R.id.noResult);
+                TextView textView = (TextView)view.findViewById(R.id.noResult);
                 textView.setText("");
                 selectDate();
             }
         });
+        return inflater.inflate(R.layout.activity_crawling_3, container, false);
     }
 
     public void selectDate(){
@@ -83,7 +85,7 @@ public class crawling_3 extends AppCompatActivity {
             }
         };
 
-        DatePickerDialog dialog = new DatePickerDialog(this, listener, yearf, monthf, dayf);
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), listener, yearf, monthf, dayf);
         dialog.show();
     }
 
@@ -115,14 +117,14 @@ public class crawling_3 extends AppCompatActivity {
         }
 
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.crawilng_3_recycler, parent, false);
-            return new ViewHolder(view);
+            return new RecyclerAdapter.ViewHolder(view);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
             RequestOptions requestOptions = new RequestOptions();
             GameResult gr = grs.get(position);
             if (gameResults.isEmpty()){
@@ -144,12 +146,12 @@ public class crawling_3 extends AppCompatActivity {
     }
 
     public void noResult(){
-        TextView noResult = (TextView)findViewById(R.id.noResult);
+        TextView noResult = (TextView)view.findViewById(R.id.noResult);
         noResult.setText("No Match");
     }
 
     public void Clean(){
-        TextView noResult = (TextView)findViewById(R.id.noResult);
+        TextView noResult = (TextView)view.findViewById(R.id.noResult);
         noResult.setText("");
     }
 
@@ -182,10 +184,9 @@ public class crawling_3 extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void voids){
             RecyclerAdapter adapter = new RecyclerAdapter(gameResults);
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(adapter);
         }
     }
 }
-
