@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -10,6 +12,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.text.util.Linkify;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +53,15 @@ public class Fragment_crawling_2 extends Fragment {
 
     public static Fragment_crawling_2 newInstance(){
         return new Fragment_crawling_2();
+    }
+
+    FragmentActivity fragmentActivity;
+    @Override
+    public void onAttach(Context context){
+        super.onAttach(context);
+        if(context instanceof Activity){
+            fragmentActivity = (FragmentActivity) context;
+        }
     }
 
     @Override
@@ -89,12 +102,12 @@ public class Fragment_crawling_2 extends Fragment {
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_1();
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_3, importFragment);
+                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-
+                Log.e("sdf","sdf");
             }
         });
 
@@ -106,11 +119,12 @@ public class Fragment_crawling_2 extends Fragment {
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_3();
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_3, importFragment);
+                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                Log.e("sdf","sdf");
             }
         });
 

@@ -8,180 +8,204 @@
     tools:context=".crawling_1"
     android:id="@+id/activity_crawling_1">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="5dp">
+        android:layout_height="wrap_content"
+        android:text="네이버 실시간 검색어"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="100dp"/>
 
-        <TextView
-            android:id="@+id/crawling_text1"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"
-            android:background="@null"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/crawling_text2"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp">
 
-        <TextView
-            android:id="@+id/crawling_text3"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@null"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text4"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text2"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text5"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text3"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text6"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text4"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text7"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text5"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text8"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text6"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text9"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text7"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text10"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text8"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text11"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text9"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text12"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text10"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/crawling_text13"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
 
-        <TextView
-            android:id="@+id/crawling_text14"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/crawling_text15"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text11"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text16"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text12"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text17"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text13"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text18"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text14"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text19"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text15"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
 
-        <TextView
-            android:id="@+id/crawling_text20"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:gravity="left"
-            android:textColorLink="#000000"/>
+            <TextView
+                android:id="@+id/crawling_text16"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+
+            <TextView
+                android:id="@+id/crawling_text17"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+
+            <TextView
+                android:id="@+id/crawling_text18"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+
+            <TextView
+                android:id="@+id/crawling_text19"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+
+            <TextView
+                android:id="@+id/crawling_text20"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:textColorLink="#000000" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
     <LinearLayout
         android:orientation="vertical"
@@ -207,7 +231,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="뉴스"
-            android:src="@drawable/navernews_stand_20160802"
+            android:src="@drawable/news_"
             android:scaleType="fitXY"
             android:background="@android:color/transparent"
             android:layout_marginBottom="50dp"/>
@@ -217,7 +241,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="야구 경기"
-            android:src="@drawable/kbo"
+            android:src="@drawable/soccer"
             android:scaleType="fitXY"
             android:background="@android:color/transparent"
             android:layout_marginBottom="50dp"/>

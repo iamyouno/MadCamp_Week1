@@ -26,7 +26,7 @@ public class ViewPager_Adapter extends FragmentPagerAdapter {
 
         itext.add("Address");
         itext.add("Gallery");
-        itext.add("Web Crawling"); // 각각의 tab에 대한 텍스트 저장.
+        itext.add("Web Crawling");// 각각의 tab에 대한 텍스트 저장.
     }
 
     @Override
