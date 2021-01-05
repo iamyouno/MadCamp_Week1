@@ -29,6 +29,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -42,60 +44,44 @@ public class crawling_3 extends AppCompatActivity {
     DatePickerDialog.OnDateSetListener listener;
 
     String url;
+    int yearf=2021;
+    int monthf=0;
+    int dayf=1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crawling_3);
-
+        Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
         recyclerView = findViewById(R.id.recyclerView_sport);
-//        EditText editText = (EditText)findViewById(R.id.date);
-//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                switch(actionId){
-//                    case EditorInfo.IME_ACTION_SEARCH:
-//                        break;
-//                    default:
-//                        String date = editText.getText().toString();
-//                        /// 문제 : 12월 31일은 %2012 1월은 %201 로 인식
-//                        url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query="+date.substring(0, 4)+"년%2"+date.substring(4, 6)+"월%2"+date.substring(6)+"일%20해외축구%20경기일정";
-//                        InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-//                        manager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-//                        SportJsoup sportJsoup = new SportJsoup();
-//                        sportJsoup.execute();
-//
-//                        return false;
-//                }
-//                return true;
-//            }
-//        });
         Button button = findViewById(R.id.datePicker);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                Toast.makeText(getApplicationContext(), "onClick", Toast.LENGTH_SHORT).show();
                 selectDate();
             }
         });
-
-
     }
 
     public void selectDate(){
         listener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getApplicationContext(), "34343434", Toast.LENGTH_SHORT);
+
                 String yearS = Integer.toString(year);
                 String monthS = Integer.toString(month+1);
                 String dayS = Integer.toString(dayOfMonth);
                 url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query=" + yearS + "년%20" + monthS + "월%20" + dayS + "일%20해외축구%20경기일정";
-//                url = "https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjA5&query=2021년%201월%204일%20해외축구%20경기일정";
+                yearf = year;
+                monthf = month;
+                dayf = dayOfMonth;
                 SportJsoup sportJsoup = new SportJsoup();
                 sportJsoup.execute();
             }
         };
 
-        DatePickerDialog dialog = new DatePickerDialog(this, listener, 2021, 0, 1);
+        DatePickerDialog dialog = new DatePickerDialog(this, listener, yearf, monthf, dayf);
         dialog.show();
     }
 
@@ -118,6 +104,9 @@ public class crawling_3 extends AppCompatActivity {
 
         public RecyclerAdapter(ArrayList<GameResult> list){
             this.grs = list;
+            if (list.isEmpty()){
+                noResult();
+            }
         }
 
         @Override
@@ -131,17 +120,27 @@ public class crawling_3 extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             RequestOptions requestOptions = new RequestOptions();
             GameResult gr = grs.get(position);
-            holder.team1.setText(gr.getTeam1());
-            holder.team2.setText(gr.getTeam2());
-            holder.score.setText(gr.getScore());
-            Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo1()).into(holder.logo1);
-            Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo2()).into(holder.logo2);
+            if (gameResults.isEmpty()){
+
+            }
+            else {
+                holder.team1.setText(gr.getTeam1());
+                holder.team2.setText(gr.getTeam2());
+                holder.score.setText(gr.getScore());
+                Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo1()).into(holder.logo1);
+                Glide.with(holder.itemView).setDefaultRequestOptions(requestOptions).load(gr.getLogo2()).into(holder.logo2);
+            }
         }
 
         @Override
         public int getItemCount() {
             return grs.size();
         }
+    }
+
+    public void noResult(){
+        TextView noResult = (TextView)findViewById(R.id.noResult);
+        noResult.setText("No Match");
     }
 
     public class SportJsoup extends AsyncTask<Void, Void, Void> {
@@ -153,7 +152,6 @@ public class crawling_3 extends AppCompatActivity {
                 Elements elements = document.select("tbody._scroll_content > tr");
                 gameResults = new ArrayList<>();
                 for (Element e : elements ){
-
                     GameResult gameResult = new GameResult();
 
                     gameResult.setTeam1(e.select("td.l_team > span[class=txt_name txt_pit]").text());
