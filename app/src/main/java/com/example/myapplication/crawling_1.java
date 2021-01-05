@@ -3,13 +3,19 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextPaint;
+import android.text.style.URLSpan;
+import android.text.util.Linkify;
 import android.widget.TextView;
-import android.widget.Toast;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class crawling_1 extends AppCompatActivity {
@@ -38,7 +44,6 @@ public class crawling_1 extends AppCompatActivity {
                         crawling[i] = stringBuilder.toString();
                         i++;
                     }
-//                    Thread.sleep(100);
                     publishProgress();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -52,6 +57,17 @@ public class crawling_1 extends AppCompatActivity {
             for (int i=0; i<20; i++){
                 TextView textView = (TextView)findViewById(textViewsId[i]);
                 textView.setText(crawling[i]);
+
+                Linkify.TransformFilter filter = new Linkify.TransformFilter() {
+                    @Override
+                    public String transformUrl(Matcher match, String url) {
+                        return "";
+                    }
+                };
+
+                Pattern pattern = Pattern.compile(crawling[i]);
+                Linkify.addLinks(textView, pattern, "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="+crawling[i].substring(i/10+2), null, filter);
+                stripUnderlines(textView);
             }
             super.onProgressUpdate();
         }
@@ -63,20 +79,43 @@ public class crawling_1 extends AppCompatActivity {
         }
     }
 
+    // for underline
+    private void stripUnderlines(TextView textView) {
+        Spannable s = new SpannableString(textView.getText());
+        URLSpan[] spans = s.getSpans(0, s.length(), URLSpan.class);
+        for (URLSpan span: spans) {
+            int start = s.getSpanStart(span);
+            int end = s.getSpanEnd(span);
+            s.removeSpan(span);
+            span = new URLSpanNoUnderline(span.getURL());
+            s.setSpan(span, start, end, 0);
+        }
+        textView.setText(s);
+    }
+
+    private class URLSpanNoUnderline extends URLSpan {
+        public URLSpanNoUnderline(String url) {
+            super(url);
+        }
+        @Override public void updateDrawState(TextPaint ds) {
+            super.updateDrawState(ds);
+            ds.setUnderlineText(false);
+        }
+    }
+    // for underline
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crawling_1);
         realTask.stop = true;
         realTask.execute();
-
     }
 
     @Override
     protected void onDestroy(){
         realTask.stop = false;
         super.onDestroy();
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
     }
 }
 
