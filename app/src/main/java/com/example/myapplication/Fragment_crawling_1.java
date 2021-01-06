@@ -110,7 +110,12 @@ public class Fragment_crawling_1 extends Fragment {
                 };
 
                 Pattern pattern = Pattern.compile(crawling[i]);
-                Linkify.addLinks(textView, pattern, "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query="+crawling[i].substring((i+1)/10+2), null, filter);
+                if (i < 9) {
+                    Linkify.addLinks(textView, pattern, "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + crawling[i].substring(2), null, filter);
+                }
+                else{
+                    Linkify.addLinks(textView, pattern, "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=" + crawling[i].substring(3), null, filter);
+                }
                 stripUnderlines(textView);
             }
             super.onProgressUpdate();
