@@ -94,40 +94,6 @@ public class Fragment_crawling_2 extends Fragment {
         //AsyncTask 작동시키기(파싱)
         new Fragment_crawling_2.Description().execute();
 
-        ImageButton crawling_1 = (ImageButton) view.findViewById(R.id.crawling_1_2);
-        crawling_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
-                Fragment importFragment = new Fragment_crawling_1();
-
-                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                Log.e("sdf","sdf");
-            }
-        });
-
-        ImageButton crawling_3 = (ImageButton) view.findViewById(R.id.crawling_3_2);
-        crawling_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
-                Fragment importFragment = new Fragment_crawling_3();
-
-                FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_crawling_2, importFragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-                Log.e("sdf","sdf");
-            }
-        });
-
 
         return view;
 

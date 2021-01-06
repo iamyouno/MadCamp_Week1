@@ -57,6 +57,8 @@ public class Fragment3 extends Fragment {
         crawling_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //fragment 쌓이는거 없애줌
+                clearBackStack();
 
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_1();
@@ -75,6 +77,8 @@ public class Fragment3 extends Fragment {
         crawling_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //fragment 쌓이는거 없애줌
+                clearBackStack();
 
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_2();
@@ -92,6 +96,8 @@ public class Fragment3 extends Fragment {
         crawling_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //fragment 쌓이는거 없애줌
+                clearBackStack();
 
                 //프래그먼트 새로 만들어서 그 프래그먼트 보여주도록
                 Fragment importFragment = new Fragment_crawling_3();
@@ -109,6 +115,11 @@ public class Fragment3 extends Fragment {
         return view;
     }
 
-
+    private void clearBackStack(){
+        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+        for(int i = 0; i < fragmentManager.getBackStackEntryCount(); i++){
+            fragmentManager.popBackStack();
+        }
+    }
 
 }

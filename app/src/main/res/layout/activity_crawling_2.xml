@@ -25,45 +25,6 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:weightSum="100"
-        android:layout_gravity="start"
-        android:background="#48000000"
-        android:gravity="center">
 
-        <ImageButton
-            android:id="@+id/crawling_1"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="네이버"
-            android:src="@drawable/naver"
-            android:scaleType="fitXY"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="50dp"/>
-
-        <ImageButton
-            android:id="@+id/crawling_2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="뉴스"
-            android:src="@drawable/navernews_stand_20160802"
-            android:scaleType="fitXY"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="50dp"/>
-
-        <ImageButton
-            android:id="@+id/crawling_3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="야구 경기"
-            android:src="@drawable/kbo"
-            android:scaleType="fitXY"
-            android:background="@android:color/transparent"
-            android:layout_marginBottom="50dp"/>
-
-    </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

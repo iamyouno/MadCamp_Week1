@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment3"
-    android:id="@+id/fragment_3">
+    tools:context=".Fragment3">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_3">
 
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:orientation="vertical"
