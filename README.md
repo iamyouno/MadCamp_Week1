@@ -1,4 +1,4 @@
-MadCamp Week 1 (이지수, 전윤호) with Java
+MadCamp Week 1 (이지수, 전윤호)
 
 - 첫번째 탭: 연락처
 recycler view를 이용해 json으로 미리 set해준 이름, 전화번호를 연락처에 추가하고, 연락처 삭제, 추가, 변경 구현
